@@ -1,0 +1,17 @@
+services:
+  prestamo-app:
+    build: .
+    restart: unless-stopped
+    environment:
+      - APP_PASSWORD=${APP_PASSWORD:-cambia-esta-clave}
+      - SECRET_KEY=${SECRET_KEY:-cambia-esta-clave-secreta}
+      - DB_PATH=/app/data/prestamo.db
+    volumes:
+      - prestamo_data:/app/data
+    # Dokploy detecta el puerto expuesto automáticamente y arma el dominio/proxy.
+    # Si necesitas publicarlo manualmente para probar en el VPS, descomenta:
+    ports:
+     - "8000:8000"
+
+volumes:
+  prestamo_data:
