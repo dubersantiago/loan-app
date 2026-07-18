@@ -3,8 +3,8 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      - APP_PASSWORD=${APP_PASSWORD:-cambia-esta-clave}
-      - SECRET_KEY=${SECRET_KEY:-cambia-esta-clave-secreta}
+      - APP_PASSWORD=${APP_PASSWORD:-1224}
+      - SECRET_KEY=${SECRET_KEY:-asdasd}
       - DB_PATH=/app/data/prestamo.db
     volumes:
       - prestamo_data:/app/data
